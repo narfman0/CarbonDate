@@ -1,6 +1,6 @@
 import bottle
 from bottle import route, run, template, response
-import json
+import simplejson
 from ordereddict import OrderedDict
 
 from getTopsy import getTopsyCreationDate
@@ -46,7 +46,7 @@ def index(url):
 	result.append(("Google.com", google))
 	result.append(("Archives", archives))
 	values = OrderedDict(result)
-	r = json.dumps(values, sort_keys=False, indent=2, separators=(',', ': '))
+	r = simplejson.dumps(values, sort_keys=False, indent=2, separators=(',', ': '))
 	print r
 	return r
    
